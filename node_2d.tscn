@@ -14,6 +14,7 @@ radius = 10.542402
 [node name="Node" type="Node" unique_id=1102028357]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1909600608]
+position = Vector2(0, -226)
 
 [node name="Player" type="Node2D" parent="." unique_id=1170044883]
 
@@ -31,7 +32,7 @@ shape = SubResource("CapsuleShape2D_0hol4")
 position = Vector2(12, -7)
 
 [node name="Area2D" type="Area2D" parent="Enemy" unique_id=572688973]
-position = Vector2(-726, -371)
+position = Vector2(-737, -613)
 scale = Vector2(8.539062, 8.539062)
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy/Area2D" unique_id=1968693309]
