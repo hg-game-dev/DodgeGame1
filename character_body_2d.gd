@@ -3,6 +3,15 @@ extends CharacterBody2D
 @export var speed = 600
 
 var target = position
+var tokens := 0
+
+func add_tokens(amount):
+	tokens += amount
+	print("Tokens:", tokens)
+
+func lose_tokens(amount):
+	tokens = max(tokens - amount, 0)
+	print("Tokens:", tokens)
 
 func _input(event):
 	if event.is_action_pressed(&"click"):

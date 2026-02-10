@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dbbahygaarj06"]
 
 [ext_resource type="Script" uid="uid://cg8oicq4erbjo" path="res://character_body_2d.gd" id="2_0hol4"]
-[ext_resource type="Script" uid="uid://bqp8we72namh5" path="res://area_2d.gd" id="3_0hol4"]
+[ext_resource type="Script" uid="uid://dol84i7gdf7ns" path="res://enemy.gd" id="3_0hol4"]
 [ext_resource type="Texture2D" uid="uid://c2ejthfucpqpm" path="res://mouse.png" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://bmcmmbg8hsgs2" path="res://cat_1.png" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://duuc70rfke0ms" path="res://token.tscn.gd" id="5_kdubu"]
+[ext_resource type="Texture2D" uid="uid://3m8a5piwiw17" path="res://cheese.png" id="5_q6r6c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hol4"]
 radius = 41.0
@@ -11,6 +13,9 @@ height = 98.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q6r6c"]
 radius = 10.542402
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
+size = Vector2(69, 75)
 
 [node name="Node" type="Node" unique_id=1102028357]
 
@@ -43,3 +48,18 @@ texture = ExtResource("4_0hol4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=258735405]
 position = Vector2(0.3513267, 2.4592867)
 shape = SubResource("CircleShape2D_q6r6c")
+
+[node name="Token" type="Node2D" parent="." unique_id=159292683]
+
+[node name="Area2D" type="Area2D" parent="Token" unique_id=1267787408]
+script = ExtResource("5_kdubu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Token/Area2D" unique_id=469109551]
+position = Vector2(312.5, -390.75)
+scale = Vector2(3.7812505, 3.3593757)
+texture = ExtResource("5_q6r6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Token/Area2D" unique_id=1938529689]
+position = Vector2(312.5, -394.5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_kdubu")

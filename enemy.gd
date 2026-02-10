@@ -68,4 +68,6 @@ func _random_offscreen_world_point() -> Vector2:
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
+		if body.has_method("lose_tokens"):
+			body.lose_tokens(3)
 		print("Caught!")
