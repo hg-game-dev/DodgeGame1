@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbbahygaarj06"]
 
 [ext_resource type="Script" uid="uid://cg8oicq4erbjo" path="res://character_body_2d.gd" id="2_0hol4"]
+[ext_resource type="Script" uid="uid://bqp8we72namh5" path="res://area_2d.gd" id="3_0hol4"]
 [ext_resource type="Texture2D" uid="uid://c2ejthfucpqpm" path="res://mouse.png" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://bmcmmbg8hsgs2" path="res://cat_1.png" id="4_0hol4"]
 
@@ -18,7 +19,7 @@ position = Vector2(0, -226)
 
 [node name="Player" type="Node2D" parent="." unique_id=1170044883]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Player" unique_id=79932143]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player" unique_id=79932143 groups=["player"]]
 script = ExtResource("2_0hol4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/CharacterBody2D" unique_id=174627183]
@@ -32,8 +33,9 @@ shape = SubResource("CapsuleShape2D_0hol4")
 position = Vector2(12, -7)
 
 [node name="Area2D" type="Area2D" parent="Enemy" unique_id=572688973]
-position = Vector2(-737, -613)
+position = Vector2(-737, -476.99997)
 scale = Vector2(8.539062, 8.539062)
+script = ExtResource("3_0hol4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy/Area2D" unique_id=1968693309]
 texture = ExtResource("4_0hol4")
