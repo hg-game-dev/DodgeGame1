@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://dbbahygaarj06"]
 
 [ext_resource type="Script" uid="uid://cg8oicq4erbjo" path="res://character_body_2d.gd" id="2_0hol4"]
+[ext_resource type="Script" uid="uid://dl3257peo8yly" path="res://camera_2d.gd" id="2_rj586"]
 [ext_resource type="Script" uid="uid://dol84i7gdf7ns" path="res://enemy.gd" id="3_0hol4"]
 [ext_resource type="Texture2D" uid="uid://c2ejthfucpqpm" path="res://mouse.png" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://bmcmmbg8hsgs2" path="res://cat_1.png" id="4_0hol4"]
 [ext_resource type="Script" uid="uid://duuc70rfke0ms" path="res://token.tscn.gd" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://3m8a5piwiw17" path="res://cheese.png" id="5_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://c4i3gu384lbnt" path="res://tile_set.png" id="7_d21ai"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hol4"]
 radius = 41.0
@@ -17,15 +19,65 @@ radius = 10.542402
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
 size = Vector2(69, 75)
 
-[node name="Node" type="Node" unique_id=1102028357]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rj586"]
+texture = ExtResource("7_d21ai")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+16:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+16:3/0 = 0
+16:4/0 = 0
+16:5/0 = 0
+16:6/0 = 0
+16:7/0 = 0
+16:8/0 = 0
+16:1/0 = 0
+16:0/0 = 0
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1909600608]
-position = Vector2(0, -226)
+[sub_resource type="TileSet" id="TileSet_4d7sh"]
+sources/0 = SubResource("TileSetAtlasSource_rj586")
+
+[node name="Node" type="Node" unique_id=1102028357]
 
 [node name="Player" type="Node2D" parent="." unique_id=1170044883]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Player" unique_id=79932143 groups=["player"]]
 script = ExtResource("2_0hol4")
+
+[node name="Camera2D" type="Camera2D" parent="Player/CharacterBody2D" unique_id=1909600608]
+process_callback = 0
+script = ExtResource("2_rj586")
+board_path = NodePath("../../../Background")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/CharacterBody2D" unique_id=174627183]
 scale = Vector2(4, 4)
@@ -63,3 +115,17 @@ texture = ExtResource("5_q6r6c")
 position = Vector2(312.5, -394.5)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_kdubu")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1621817563]
+z_index = -1
+position = Vector2(384.00003, 700.7088)
+scale = Vector2(9.5, 9.5)
+texture = ExtResource("7_d21ai")
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1020787568]
+tile_set = SubResource("TileSet_4d7sh")
+format = 2
+
+[node name="Layer0" type="TileMapLayer" parent="TileMap" unique_id=1193799034]
+use_parent_material = true
+tile_set = SubResource("TileSet_4d7sh")

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 600
 
-var target = position
+var target = global_position
 var tokens := 0
 
 func add_tokens(amount):
@@ -16,11 +16,26 @@ func lose_tokens(amount):
 func _input(event):
 	if event.is_action_pressed(&"click"):
 		target = get_global_mouse_position()
+		target = clamp_to_board(target)
 	if event is InputEventMouseMotion and Input.is_action_pressed(&"click"):
 		target = get_global_mouse_position()
+		target = clamp_to_board(target)
 	look_at(get_global_mouse_position())
+	
+@export var board_center := Vector2(384, 700.709)
+@export var board_size := Vector2(3040, 3040)
+
+func clamp_to_board(p: Vector2) -> Vector2:
+	var half := board_size / 2.0
+	var min_x := board_center.x - half.x
+	var min_y := board_center.y - half.y
+	var max_x := board_center.x + half.x
+	var max_y := board_center.y + half.y
+	return Vector2(clamp(p.x, min_x, max_x), clamp(p.y, min_y, max_y))
 
 func _physics_process(delta):
-	velocity = position.direction_to(target) * speed
+	velocity = global_position.direction_to(target) * speed
 	if position.distance_to(target) > 10:
 		move_and_slide()
+	else:
+		velocity = Vector2.ZERO
