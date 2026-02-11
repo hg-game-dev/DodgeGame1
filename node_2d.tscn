@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://dbbahygaarj06"]
+
+[ext_resource type="Script" uid="uid://crl8ctyklytm5" path="res://node_2d.gd" id="1_ir8iy"]
+[ext_resource type="Script" uid="uid://cg8oicq4erbjo" path="res://character_body_2d.gd" id="2_0hol4"]
+[ext_resource type="Script" uid="uid://cvj7fc5vrcbjq" path="res://hud.gd" id="2_hqns4"]
+[ext_resource type="Script" uid="uid://dl3257peo8yly" path="res://camera_2d.gd" id="2_rj586"]
+[ext_resource type="Script" uid="uid://dol84i7gdf7ns" path="res://enemy.gd" id="3_0hol4"]
+[ext_resource type="Texture2D" uid="uid://c2ejthfucpqpm" path="res://mouse.png" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://bmcmmbg8hsgs2" path="res://cat_1.png" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://xef0ffyjposk" path="res://Game Over.png" id="4_hqns4"]
+[ext_resource type="Script" uid="uid://duuc70rfke0ms" path="res://token.tscn.gd" id="5_kdubu"]
+[ext_resource type="Texture2D" uid="uid://3m8a5piwiw17" path="res://cheese.png" id="5_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://c4i3gu384lbnt" path="res://tile_set.png" id="7_d21ai"]
+[ext_resource type="PackedScene" uid="uid://cop5dm3wikblf" path="res://tile_map.tscn" id="12_x0ka3"]
+
+[sub_resource type="SystemFont" id="SystemFont_hqns4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hol4"]
+radius = 41.0
+height = 98.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q6r6c"]
+radius = 10.542402
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
+size = Vector2(69, 75)
+
+[node name="Node" type="Node" unique_id=1102028357]
+script = ExtResource("1_ir8iy")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=118202492]
+script = ExtResource("2_hqns4")
+
+[node name="LivesBox" type="HBoxContainer" parent="HUD" unique_id=158023294]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 130.0
+offset_bottom = 50.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 12
+
+[node name="Life1" type="TextureRect" parent="HUD/LivesBox" unique_id=732859742]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_epypp")
+stretch_mode = 5
+
+[node name="Life2" type="TextureRect" parent="HUD/LivesBox" unique_id=1285154876]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_epypp")
+stretch_mode = 5
+
+[node name="Life3" type="TextureRect" parent="HUD/LivesBox" unique_id=1601581736]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_epypp")
+stretch_mode = 5
+
+[node name="GameOver" type="Control" parent="HUD" unique_id=713518198]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverImage" type="TextureRect" parent="HUD/GameOver" unique_id=1083340500]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_hqns4")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="GameOverLabel" type="Label" parent="HUD/GameOver" unique_id=231345551]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 2875.0
+offset_bottom = 682.0
+theme_override_colors/font_color = Color(1, 0.5254902, 0.15294118, 1)
+theme_override_colors/font_shadow_color = Color(0.6784314, 0.21176471, 0, 0.7607843)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = SubResource("SystemFont_hqns4")
+theme_override_font_sizes/font_size = 120
+text = "Game Over!"
+
+[node name="FinalTokensLabel" type="Label" parent="HUD/GameOver" unique_id=537799830]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 150.0
+offset_right = 90.0
+offset_bottom = 287.0
+theme_override_font_sizes/font_size = 35
+
+[node name="Player" type="Node2D" parent="." unique_id=1170044883]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player" unique_id=79932143 groups=["player"]]
+script = ExtResource("2_0hol4")
+
+[node name="Camera2D" type="Camera2D" parent="Player/CharacterBody2D" unique_id=1909600608]
+process_callback = 0
+script = ExtResource("2_rj586")
+board_path = NodePath("../../../Background")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/CharacterBody2D" unique_id=174627183]
+scale = Vector2(4, 4)
+texture = ExtResource("3_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D" unique_id=183493482]
+shape = SubResource("CapsuleShape2D_0hol4")
+
+[node name="Enemy" type="Node2D" parent="." unique_id=2080868617]
+position = Vector2(12, -7)
+
+[node name="Area2D" type="Area2D" parent="Enemy" unique_id=572688973]
+position = Vector2(-737, -476.99997)
+scale = Vector2(8.539062, 8.539062)
+script = ExtResource("3_0hol4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy/Area2D" unique_id=1968693309]
+texture = ExtResource("4_0hol4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=258735405]
+position = Vector2(0.3513267, 2.4592867)
+shape = SubResource("CircleShape2D_q6r6c")
+
+[node name="Token" type="Node2D" parent="." unique_id=159292683]
+
+[node name="Area2D" type="Area2D" parent="Token" unique_id=1267787408]
+script = ExtResource("5_kdubu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Token/Area2D" unique_id=469109551]
+position = Vector2(312.5, -390.75)
+scale = Vector2(3.7812505, 3.3593757)
+texture = ExtResource("5_q6r6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Token/Area2D" unique_id=1938529689]
+position = Vector2(312.5, -394.5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_kdubu")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1621817563]
+visible = false
+z_index = -1
+position = Vector2(384.00003, 700.7088)
+scale = Vector2(9.5, 9.5)
+texture = ExtResource("7_d21ai")
+
+[node name="TileMap" parent="." unique_id=1328375107 instance=ExtResource("12_x0ka3")]
