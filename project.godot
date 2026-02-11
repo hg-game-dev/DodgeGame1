@@ -15,6 +15,13 @@ run/main_scene="uid://dbbahygaarj06"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=320
+window/size/window_width_override=920
+window/size/window_height_override=920
+
 [dotnet]
 
 project/assembly_name="DodgeGame1"
@@ -53,4 +60,5 @@ click={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
