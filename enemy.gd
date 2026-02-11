@@ -13,7 +13,6 @@ var destination:= Vector2.ZERO
 var retreat_point := Vector2.ZERO
 
 func _ready():
-	
 	body_entered.connect(_on_body_entered)
 	monitoring = true
 	monitorable = true
@@ -68,6 +67,5 @@ func _random_offscreen_world_point() -> Vector2:
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		if body.has_method("lose_tokens"):
-			body.lose_tokens(3)
+		body.call("on_caught")
 		print("Caught!")
