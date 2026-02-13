@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvj7fc5vrcbjq" path="res://hud.gd" id="1_8sq4i"]
 [ext_resource type="Texture2D" uid="uid://c2ejthfucpqpm" path="res://mouse.png" id="2_640wx"]
+[ext_resource type="Texture2D" uid="uid://lwnpjk7pwf55" path="res://WinGame.png" id="3_640wx"]
 [ext_resource type="Texture2D" uid="uid://xef0ffyjposk" path="res://Game Over.png" id="3_a2258"]
 
 [sub_resource type="SystemFont" id="SystemFont_hqns4"]
@@ -35,6 +36,86 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("2_640wx")
 stretch_mode = 5
+
+[node name="Life4" type="TextureRect" parent="LivesBox" unique_id=840773169]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="Life5" type="TextureRect" parent="LivesBox" unique_id=2092706846]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="Life6" type="TextureRect" parent="LivesBox" unique_id=284209577]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="Life7" type="TextureRect" parent="LivesBox" unique_id=492787236]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="Life8" type="TextureRect" parent="LivesBox" unique_id=1149877928]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="CheeseCollected" type="HBoxContainer" parent="." unique_id=1338896567]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CheeseWheel1" type="TextureRect" parent="CheeseCollected" unique_id=844418036]
+layout_mode = 2
+
+[node name="CheeseWheel2" type="TextureRect" parent="CheeseCollected" unique_id=361859057]
+layout_mode = 2
+
+[node name="CheeseWheel3" type="TextureRect" parent="CheeseCollected" unique_id=1628506079]
+layout_mode = 2
+
+[node name="CheeseWheel4" type="TextureRect" parent="CheeseCollected" unique_id=277523150]
+layout_mode = 2
+
+[node name="CheeseWheel5" type="TextureRect" parent="CheeseCollected" unique_id=1691968349]
+layout_mode = 2
+
+[node name="WinScreen" type="Control" parent="." unique_id=321599905]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WinImage" type="TextureRect" parent="WinScreen" unique_id=592872398]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_640wx")
+
+[node name="FinalTokensLabel" type="Label" parent="WinScreen/WinImage" unique_id=1582075557]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 2875.0
+offset_bottom = 682.0
+theme_override_colors/font_color = Color(1, 0.5254902, 0.15294118, 1)
+theme_override_colors/font_shadow_color = Color(0.6784314, 0.21176471, 0, 0.7607843)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = SubResource("SystemFont_hqns4")
+theme_override_font_sizes/font_size = 120
+text = "Full of Cheese
+
+You win? I guess...?"
 
 [node name="GameOver" type="Control" parent="." unique_id=1946293531]
 visible = false
@@ -79,10 +160,3 @@ offset_top = 150.0
 offset_right = 90.0
 offset_bottom = 287.0
 theme_override_font_sizes/font_size = 35
-
-[node name="CheeseCollected" type="HBoxContainer" parent="." unique_id=1338896567]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CheeseWheel1" type="TextureRect" parent="CheeseCollected" unique_id=844418036]
-layout_mode = 2

@@ -11,6 +11,14 @@ signal died
 @export var max_lives := 3
 var lives := 3
 
+signal tokens_changed(tokens)
+signal won
+
+@export var slow_per_token := 10
+@export var min_speed := 250
+
+var wheels_awarded := 0
+
 func _ready():
 	lives = max_lives
 	lives_changed.emit(lives)
@@ -22,16 +30,24 @@ func lose_life():
 		died.emit()
 
 func on_caught():
-	lose_tokens(3)
 	lose_life()
 
 func add_tokens(amount):
 	tokens += amount
+	tokens_changed.emit(tokens)
 	print("Tokens:", tokens)
 
-func lose_tokens(amount):
-	tokens = max(tokens - amount, 0)
-	print("Tokens:", tokens)
+	speed = max(speed - slow_per_token * amount, min_speed)
+
+	var wheels_now := tokens / 6
+	if wheels_now > wheels_awarded:
+		var gained := wheels_now - wheels_awarded
+		lives += gained
+		wheels_awarded = wheels_now
+		lives_changed.emit(lives)
+
+	if tokens >= 30:
+		won.emit()
 
 func _input(event):
 	if event.is_action_pressed(&"click"):
