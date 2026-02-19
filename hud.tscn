@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cvj7fc5vrcbjq" path="res://hud.gd" id="1_8sq4i"]
 [ext_resource type="Texture2D" uid="uid://c2ejthfucpqpm" path="res://mouse.png" id="2_640wx"]
 [ext_resource type="Texture2D" uid="uid://lwnpjk7pwf55" path="res://WinGame.png" id="3_640wx"]
-[ext_resource type="Texture2D" uid="uid://xef0ffyjposk" path="res://Game Over.png" id="3_a2258"]
+[ext_resource type="PackedScene" uid="uid://dain2scvw46rt" path="res://game_over.tscn" id="4_640wx"]
 
 [sub_resource type="SystemFont" id="SystemFont_hqns4"]
 subpixel_positioning = 0
@@ -117,46 +117,8 @@ text = "Full of Cheese
 
 You win? I guess...?"
 
-[node name="GameOver" type="Control" parent="." unique_id=1946293531]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="GameOverImage" type="TextureRect" parent="GameOver" unique_id=165844774]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_a2258")
-expand_mode = 3
-stretch_mode = 6
-
-[node name="GameOverLabel" type="Label" parent="GameOver" unique_id=828396184]
-layout_mode = 0
-offset_left = 25.0
-offset_right = 2875.0
-offset_bottom = 682.0
-theme_override_colors/font_color = Color(1, 0.5254902, 0.15294118, 1)
-theme_override_colors/font_shadow_color = Color(0.6784314, 0.21176471, 0, 0.7607843)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 1
-theme_override_constants/shadow_outline_size = 3
-theme_override_fonts/font = SubResource("SystemFont_hqns4")
-theme_override_font_sizes/font_size = 120
-text = "Game Over!"
-
-[node name="FinalTokensLabel" type="Label" parent="GameOver" unique_id=2144387526]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 150.0
-offset_right = 90.0
-offset_bottom = 287.0
-theme_override_font_sizes/font_size = 35
+[node name="GameOver" parent="." unique_id=1619736845 instance=ExtResource("4_640wx")]
+offset_left = -1400.0
+offset_top = -900.0
+offset_right = 1400.0
+offset_bottom = 900.0
