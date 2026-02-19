@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dr8k3jv4yfd8m"]
+
+[ext_resource type="Script" uid="uid://bxlfas77htk8t" path="res://main_menu/main_menu.gd" id="1_oa53l"]
+[ext_resource type="PackedScene" uid="uid://dbbahygaarj06" path="res://node_2d.tscn" id="2_d3a7t"]
+
+[node name="Control" type="Control" unique_id=838603629]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oa53l")
+starting_scene = ExtResource("2_d3a7t")
+
+[node name="Menu" type="VBoxContainer" parent="." unique_id=394142061]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnNewGame" type="Button" parent="Menu" unique_id=998693824]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Game"
+
+[connection signal="pressed" from="Menu/BtnNewGame" to="." method="receive_new_game_clicked"]
