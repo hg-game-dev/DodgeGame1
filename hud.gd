@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var win_tokens_label := $WinScreen/FinalTokensLabel
 @onready var lives_box := $LivesBox
 @onready var game_over := $GameOver
-@onready var final_tokens_label := $GameOver/FinalTokensLabel
+@onready var final_tokens_label := $GameOver/VBoxContainer/FinalTokensLabel
 var player_ref
 
 func _ready():

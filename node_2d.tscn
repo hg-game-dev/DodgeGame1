@@ -84,3 +84,5 @@ texture = ExtResource("7_d21ai")
 
 [node name="TileMap" parent="." unique_id=1328375107 instance=ExtResource("12_x0ka3")]
 z_index = -1
+
+[editable path="HUD"]
