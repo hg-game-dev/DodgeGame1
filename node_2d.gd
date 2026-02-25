@@ -5,3 +5,5 @@ extends Node
 
 func _ready():
 	hud.connect_player(player)
+	if get_tree().paused:
+		get_tree().paused = false
