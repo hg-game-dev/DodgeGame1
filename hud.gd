@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var win_screen := $WinScreen
 @onready var win_tokens_label := $WinScreen/FinalTokensLabel
 @onready var lives_box := $LivesBox
+@onready var cheese_collected := $CheeseCollected
 @onready var game_over := $GameOver
 @onready var final_tokens_label := $GameOver/VBoxContainer/FinalTokensLabel
 var player_ref
@@ -26,6 +27,8 @@ func connect_player(player):
 		player.died.connect(_on_died)
 	if player.has_signal("won") and not player.won.is_connected(_on_won):
 		player.won.connect(_on_won)
+	if player.has_signal("tokens_changed"):
+		player.tokens_changed.connect(_add_tokens)
 
 	if "lives" in player:
 		_on_lives_changed(player.lives)
@@ -34,6 +37,10 @@ func _on_lives_changed(lives):
 	print("HUD lives:", lives)
 	for i in range(lives_box.get_child_count()):
 		lives_box.get_child(i).visible = i < lives
+
+func _add_tokens(amount):
+	for i in range(cheese_collected.get_child_count()):
+		cheese_collected.get_child(i).visible = i < amount
 
 func _on_died():
 	game_over.visible = true
