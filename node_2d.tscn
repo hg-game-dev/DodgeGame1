@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dol84i7gdf7ns" path="res://enemy.gd" id="3_0hol4"]
 [ext_resource type="Texture2D" uid="uid://c2ejthfucpqpm" path="res://mouse.png" id="3_epypp"]
 [ext_resource type="PackedScene" uid="uid://78se0x7ymqj5" path="res://cheese_wheele.tscn" id="3_nr8wp"]
+[ext_resource type="PackedScene" uid="uid://b4ibe08bum32l" path="res://ui/level_timer/level_timer.tscn" id="3_x0ka3"]
 [ext_resource type="Texture2D" uid="uid://bmcmmbg8hsgs2" path="res://cat_1.png" id="4_0hol4"]
 [ext_resource type="Texture2D" uid="uid://l8x6nyaeq56c" path="res://sprite/Cheese_wheele.png" id="5_0h7mo"]
 [ext_resource type="Script" uid="uid://duuc70rfke0ms" path="res://token.tscn.gd" id="5_kdubu"]
@@ -91,6 +92,12 @@ region_rect = Rect2(0, 0, 32, 32)
 stream = ExtResource("6_nr8wp")
 volume_db = -33.373
 autoplay = true
+[node name="LevelTimer" parent="HUD" unique_id=1087443569 instance=ExtResource("3_x0ka3")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
 
 [node name="Player" type="Node2D" parent="." unique_id=1170044883]
 
