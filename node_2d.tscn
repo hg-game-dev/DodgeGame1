@@ -7,9 +7,10 @@
 [ext_resource type="Script" uid="uid://dol84i7gdf7ns" path="res://enemy.gd" id="3_0hol4"]
 [ext_resource type="Texture2D" uid="uid://c2ejthfucpqpm" path="res://mouse.png" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://bmcmmbg8hsgs2" path="res://cat_1.png" id="4_0hol4"]
-[ext_resource type="Texture2D" uid="uid://dviyjan2635wb" path="res://sprite/cheese.png" id="4_x0ka3"]
+[ext_resource type="Texture2D" uid="uid://l8x6nyaeq56c" path="res://sprite/Cheese_wheele.png" id="5_0h7mo"]
 [ext_resource type="Script" uid="uid://duuc70rfke0ms" path="res://token.tscn.gd" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://3m8a5piwiw17" path="res://cheese.png" id="5_q6r6c"]
+[ext_resource type="AudioStream" uid="uid://bwutw2rumghub" path="res://assets_music_mouse_jam_1.wav" id="6_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://c4i3gu384lbnt" path="res://tile_set.png" id="7_d21ai"]
 [ext_resource type="PackedScene" uid="uid://cop5dm3wikblf" path="res://tile_map.tscn" id="12_x0ka3"]
 
@@ -42,32 +43,37 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="CheeseWheel1" parent="HUD/CheeseCollected" index="0" unique_id=844418036]
+visible = false
 custom_minimum_size = Vector2(100, 100)
-texture = ExtResource("5_q6r6c")
 stretch_mode = 5
 
 [node name="CheeseWheel2" parent="HUD/CheeseCollected" index="1" unique_id=361859057]
 custom_minimum_size = Vector2(100, 32)
-texture = ExtResource("4_x0ka3")
 stretch_mode = 5
 
 [node name="CheeseWheel3" parent="HUD/CheeseCollected" index="2" unique_id=1628506079]
 custom_minimum_size = Vector2(100, 32)
-texture = ExtResource("4_x0ka3")
 stretch_mode = 5
 
 [node name="CheeseWheel4" parent="HUD/CheeseCollected" index="3" unique_id=277523150]
 custom_minimum_size = Vector2(100, 32)
-texture = ExtResource("4_x0ka3")
 stretch_mode = 5
 
 [node name="CheeseWheel5" parent="HUD/CheeseCollected" index="4" unique_id=1691968349]
 custom_minimum_size = Vector2(100, 32)
-texture = ExtResource("4_x0ka3")
 stretch_mode = 5
 
-[node name="GameOver" parent="HUD" index="3" unique_id=1619736845]
+[node name="CheeseWheele" type="Sprite2D" parent="HUD/CheeseCollected" index="5" unique_id=1870391281]
 visible = false
+position = Vector2(508, 285)
+texture = ExtResource("5_0h7mo")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD" unique_id=2043662995]
+stream = ExtResource("6_nr8wp")
+volume_db = -33.373
+autoplay = true
 
 [node name="Player" type="Node2D" parent="." unique_id=1170044883]
 
