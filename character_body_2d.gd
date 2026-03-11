@@ -4,6 +4,12 @@ extends CharacterBody2D
 
 var target = global_position
 var tokens := 0
+var wheels := 0
+var partial1 := 0
+var partial2 := 0
+var partial3 := 0
+var partial4 := 0
+var partial5 := 0
 
 signal lives_changed(lives)
 signal died
@@ -14,10 +20,15 @@ var lives := 3
 signal tokens_changed(tokens)
 signal won
 
+signal partial1_changed(partial1)
+signal partial2_changed(partial2)
+signal partial3_changed(partial3)
+signal partial4_changed(partial4)
+signal partial5_changed(partial5)
+signal wheels_changed(wheels)
+
 @export var slow_per_token := 10
 @export var min_speed := 250
-
-var wheels_awarded := 0
 
 func _ready():
 	lives = max_lives
@@ -36,15 +47,49 @@ func add_tokens(amount):
 	tokens += amount
 	tokens_changed.emit(tokens)
 	print("Tokens:", tokens)
+	if tokens == 1:
+		partial1 += amount
+		partial1_changed.emit(partial1)
+		print("Partial1:", partial1)
+	if tokens == 2:
+		partial2 += amount
+		partial2_changed.emit(partial2)
+		print("Partial2:", partial2)
+	if tokens == 3:
+		partial3 += amount
+		partial3_changed.emit(partial3)
+		print("Partial3:", partial3)
+	if tokens == 4:
+		partial4 += amount
+		partial4_changed.emit(partial4)
+		print("Partial4:", partial4)
+	if tokens == 5:
+		partial5 += amount
+		partial5_changed.emit(partial5)
+		print("Partial5:", partial5)
+	if tokens == 6:
+		wheels += amount
+		wheels_changed.emit(wheels)
+		print("Wheels:", wheels)
+	if tokens == 12:
+		wheels += amount
+		wheels_changed.emit(wheels)
+		print("Wheels:", wheels)
+	if tokens == 18:
+		wheels += amount
+		wheels_changed.emit(wheels)
+		print("Wheels:", wheels)
+	if tokens == 24:
+		wheels += amount
+		wheels_changed.emit(wheels)
+		print("Wheels:", wheels)
+	if tokens == 30:
+		wheels += amount
+		wheels_changed.emit(wheels)
+		print("Wheels:", wheels)
 
 	speed = max(speed - slow_per_token * amount, min_speed)
-
-	var wheels_now := tokens / 6
-	if wheels_now > wheels_awarded:
-		var gained := wheels_now - wheels_awarded
-		lives += gained
-		wheels_awarded = wheels_now
-		lives_changed.emit(lives)
+	
 
 	if tokens >= 30:
 		won.emit()
