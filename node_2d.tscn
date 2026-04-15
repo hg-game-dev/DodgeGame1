@@ -31,6 +31,7 @@ script = ExtResource("1_ir8iy")
 [node name="HUD" parent="." unique_id=43051289 instance=ExtResource("2_hqns4")]
 
 [node name="CheeseCollected" parent="HUD" index="1" unique_id=1338896567]
+anchors_preset = 3
 offset_left = -310.0
 offset_top = -310.0
 offset_right = 206.0

@@ -12,6 +12,8 @@
 subpixel_positioning = 0
 
 [node name="HUD" type="CanvasLayer" unique_id=43051289]
+scale = Vector2(1.3, 1.3)
+transform = Transform2D(1.3, 0, 0, 1.3, 0, 0)
 script = ExtResource("1_8sq4i")
 
 [node name="LivesBox" type="HBoxContainer" parent="." unique_id=795639459]
@@ -71,17 +73,17 @@ texture = ExtResource("2_640wx")
 stretch_mode = 5
 
 [node name="CheeseCollected" type="HBoxContainer" parent="." unique_id=1338896567]
-anchors_preset = 3
+anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 2.0
 anchor_bottom = 1.0
 offset_left = -84.0
-offset_top = -40.0
-grow_horizontal = 0
-grow_vertical = 0
+offset_top = -85.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 4
-alignment = 1
 script = ExtResource("3_rftc2")
 
 [node name="CheeseWheel1" type="TextureRect" parent="CheeseCollected" unique_id=844418036]
