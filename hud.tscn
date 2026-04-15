@@ -73,14 +73,10 @@ texture = ExtResource("2_640wx")
 stretch_mode = 5
 
 [node name="CheeseCollected" type="HBoxContainer" parent="." unique_id=1338896567]
+layout_direction = 3
 anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 2.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -84.0
-offset_top = -85.0
-offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 4
@@ -91,7 +87,7 @@ custom_minimum_size = Vector2(40, 10)
 layout_mode = 2
 
 [node name="CheeseWheele" parent="CheeseCollected/CheeseWheel1" unique_id=1626461892 instance=ExtResource("4_61f8s")]
-position = Vector2(18, 18)
+position = Vector2(-397.84613, 17.692322)
 
 [node name="CheeseCollected2" type="HBoxContainer" parent="." unique_id=1014689488]
 visible = false

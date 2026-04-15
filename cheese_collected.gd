@@ -26,5 +26,5 @@ func add_new_cheese_scene() -> void:
 
 	var rect := TextureRect.new()
 	rect.texture = cheese_scene
-	rect.custom_minimum_size = Vector2(32, 32)
+	rect.custom_minimum_size = Vector2(96, 32)
 	add_child(rect)
