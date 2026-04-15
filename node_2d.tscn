@@ -32,10 +32,14 @@ script = ExtResource("1_ir8iy")
 
 [node name="CheeseCollected" parent="HUD" index="1" unique_id=1338896567]
 anchors_preset = 3
-offset_left = -310.0
-offset_top = -310.0
-offset_right = 206.0
-offset_bottom = -210.0
+anchor_left = 1.0
+anchor_top = 1.0
+offset_left = -696.76935
+offset_top = -315.3846
+offset_right = -180.76935
+offset_bottom = -215.38461
+grow_horizontal = 0
+grow_vertical = 0
 cheese = ExtResource("3_nr8wp")
 
 [node name="CheeseWheel1" parent="HUD/CheeseCollected" index="0" unique_id=844418036]
