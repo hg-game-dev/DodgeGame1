@@ -13,9 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://3m8a5piwiw17" path="res://cheese.png" id="5_q6r6c"]
 [ext_resource type="AudioStream" uid="uid://bwutw2rumghub" path="res://assets_music_mouse_jam_1.wav" id="6_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://c4i3gu384lbnt" path="res://tile_set.png" id="7_d21ai"]
+[ext_resource type="AudioStream" uid="uid://dt1p786mpkt2v" path="res://SoundFX/Chomp1b.wav" id="9_2nhjh"]
 [ext_resource type="AudioStream" uid="uid://b74xifncqp017" path="res://SoundFX/Chomp1a.wav" id="9_d2bti"]
+[ext_resource type="AudioStream" uid="uid://ckije24ccw1fd" path="res://SoundFX/Chomp2a.wav" id="11_bjha6"]
 [ext_resource type="AudioStream" uid="uid://xsim0jeym64i" path="res://SoundFX/AngryMeow1.wav" id="12_fs4d3"]
+[ext_resource type="AudioStream" uid="uid://ho352q310vkp" path="res://SoundFX/Chomp2b.wav" id="12_gt76g"]
 [ext_resource type="PackedScene" uid="uid://cop5dm3wikblf" path="res://tile_map.tscn" id="12_x0ka3"]
+[ext_resource type="AudioStream" uid="uid://dojq2em24ab5l" path="res://SoundFX/Chomp3a.wav" id="13_1fr6y"]
 [ext_resource type="AudioStream" uid="uid://o6pvc4yi8qcq" path="res://SoundFX/AngryMeow2.wav" id="13_7vxoj"]
 [ext_resource type="AudioStream" uid="uid://c5ta030hb8q0i" path="res://SoundFX/AngryMeow3.wav" id="14_ei405"]
 [ext_resource type="AudioStream" uid="uid://bo2hlk42jag76" path="res://SoundFX/Growl1.wav" id="15_e8dv2"]
@@ -24,6 +28,16 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hol4"]
 radius = 41.0
 height = 98.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2hxjc"]
+random_pitch = 1.1860515
+random_volume_offset_db = 1.54
+streams_count = 5
+stream_0/stream = ExtResource("9_2nhjh")
+stream_1/stream = ExtResource("9_d2bti")
+stream_2/stream = ExtResource("11_bjha6")
+stream_3/stream = ExtResource("12_gt76g")
+stream_4/stream = ExtResource("13_1fr6y")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q6r6c"]
 radius = 10.542402
@@ -97,7 +111,7 @@ texture = ExtResource("3_epypp")
 shape = SubResource("CapsuleShape2D_0hol4")
 
 [node name="sfx_chomp1" type="AudioStreamPlayer" parent="Player/CharacterBody2D" unique_id=1483321469]
-stream = ExtResource("9_d2bti")
+stream = SubResource("AudioStreamRandomizer_2hxjc")
 
 [node name="Enemy" type="Node2D" parent="." unique_id=2080868617]
 position = Vector2(12, -7)
