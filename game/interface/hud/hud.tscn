@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://i3lt47m73nsv"]
+
+[ext_resource type="Script" uid="uid://cvj7fc5vrcbjq" path="res://game/interface/hud/hud.gd" id="1_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://c2ejthfucpqpm" path="res://sprite/mouse.png" id="2_640wx"]
+[ext_resource type="Texture2D" uid="uid://lwnpjk7pwf55" path="res://game/interface/ending/win_game.png" id="3_640wx"]
+[ext_resource type="Script" uid="uid://3j1v788qonne" path="res://game/item/cheese/cheese_collected.gd" id="3_rftc2"]
+[ext_resource type="PackedScene" uid="uid://78se0x7ymqj5" path="res://game/item/cheese/cheese_wheel.tscn" id="4_61f8s"]
+[ext_resource type="PackedScene" uid="uid://dain2scvw46rt" path="res://game/interface/ending/game_over.tscn" id="4_640wx"]
+
+[sub_resource type="SystemFont" id="SystemFont_hqns4"]
+subpixel_positioning = 0
+
+[node name="HUD" type="CanvasLayer" unique_id=43051289]
+scale = Vector2(1.3, 1.3)
+transform = Transform2D(1.3, 0, 0, 1.3, 0, 0)
+script = ExtResource("1_8sq4i")
+
+[node name="LivesBox" type="HBoxContainer" parent="." unique_id=795639459]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 130.0
+offset_bottom = 50.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 12
+
+[node name="Life1" type="TextureRect" parent="LivesBox" unique_id=1374923659]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="Life2" type="TextureRect" parent="LivesBox" unique_id=2039640260]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="Life3" type="TextureRect" parent="LivesBox" unique_id=124256762]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="Life4" type="TextureRect" parent="LivesBox" unique_id=840773169]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="Life5" type="TextureRect" parent="LivesBox" unique_id=2092706846]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="Life6" type="TextureRect" parent="LivesBox" unique_id=284209577]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="Life7" type="TextureRect" parent="LivesBox" unique_id=492787236]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="Life8" type="TextureRect" parent="LivesBox" unique_id=1149877928]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_640wx")
+stretch_mode = 5
+
+[node name="CheeseCollected" type="HBoxContainer" parent="." unique_id=1338896567]
+layout_direction = 3
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+script = ExtResource("3_rftc2")
+cheese = ExtResource("4_61f8s")
+
+[node name="WinScreen" type="Control" parent="." unique_id=321599905]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WinImage" type="TextureRect" parent="WinScreen" unique_id=592872398]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_640wx")
+
+[node name="FinalTokensLabel" type="Label" parent="WinScreen/WinImage" unique_id=1582075557]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 2875.0
+offset_bottom = 682.0
+theme_override_colors/font_color = Color(1, 0.5254902, 0.15294118, 1)
+theme_override_colors/font_shadow_color = Color(0.6784314, 0.21176471, 0, 0.7607843)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = SubResource("SystemFont_hqns4")
+theme_override_font_sizes/font_size = 120
+text = "Full of Cheese
+
+You win? I guess...?"
+
+[node name="GameOver" parent="." unique_id=1619736845 instance=ExtResource("4_640wx")]
+visible = false
+offset_left = -1400.0
+offset_top = -900.0
+offset_right = 1400.0
+offset_bottom = 900.0

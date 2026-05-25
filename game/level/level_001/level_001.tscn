@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://dbbahygaarj06"]
+
+[ext_resource type="Script" uid="uid://xud6d4x4khw3" path="res://game/level/level.gd" id="1_8d2ed"]
+[ext_resource type="PackedScene" uid="uid://i3lt47m73nsv" path="res://game/interface/hud/hud.tscn" id="2_inren"]
+[ext_resource type="AudioStream" uid="uid://bwutw2rumghub" path="res://assets_music_mouse_jam_1.wav" id="5_co64l"]
+[ext_resource type="PackedScene" uid="uid://b4ibe08bum32l" path="res://game/interface/level_timer/level_timer.tscn" id="6_5pg78"]
+[ext_resource type="Script" uid="uid://vmm4xvvukyes" path="res://game/player/mouse/player.gd" id="7_v3img"]
+[ext_resource type="Script" uid="uid://bxrrhty4t01pq" path="res://game/logic/camera.gd" id="8_hl6wr"]
+[ext_resource type="Texture2D" uid="uid://c2ejthfucpqpm" path="res://sprite/mouse.png" id="9_70rgy"]
+[ext_resource type="AudioStream" uid="uid://dt1p786mpkt2v" path="res://SoundFX/Chomp1b.wav" id="10_e3375"]
+[ext_resource type="AudioStream" uid="uid://b74xifncqp017" path="res://SoundFX/Chomp1a.wav" id="11_15bh7"]
+[ext_resource type="AudioStream" uid="uid://ckije24ccw1fd" path="res://SoundFX/Chomp2a.wav" id="12_2tyfk"]
+[ext_resource type="AudioStream" uid="uid://ho352q310vkp" path="res://SoundFX/Chomp2b.wav" id="13_hwfyc"]
+[ext_resource type="AudioStream" uid="uid://dojq2em24ab5l" path="res://SoundFX/Chomp3a.wav" id="14_8e73s"]
+[ext_resource type="Script" uid="uid://cidniliyju5ha" path="res://game/npc/cat/enemy.gd" id="15_01ymu"]
+[ext_resource type="Texture2D" uid="uid://bmcmmbg8hsgs2" path="res://game/npc/cat/cat_1.png" id="16_1wvoe"]
+[ext_resource type="AudioStream" uid="uid://xsim0jeym64i" path="res://SoundFX/AngryMeow1.wav" id="17_dheal"]
+[ext_resource type="AudioStream" uid="uid://o6pvc4yi8qcq" path="res://SoundFX/AngryMeow2.wav" id="18_okjg5"]
+[ext_resource type="AudioStream" uid="uid://c5ta030hb8q0i" path="res://SoundFX/AngryMeow3.wav" id="19_pv70y"]
+[ext_resource type="AudioStream" uid="uid://bo2hlk42jag76" path="res://SoundFX/Growl1.wav" id="20_xpi3e"]
+[ext_resource type="AudioStream" uid="uid://c746m3u02gode" path="res://SoundFX/Growl2.wav" id="21_6mkw5"]
+[ext_resource type="Script" uid="uid://vxxb13iepb6x" path="res://game/item/token.tscn.gd" id="22_y5wpv"]
+[ext_resource type="Texture2D" uid="uid://3m8a5piwiw17" path="res://game/item/cheese/cheese.png" id="23_l7m0s"]
+[ext_resource type="Texture2D" uid="uid://c4i3gu384lbnt" path="res://game/level/level_001/tile_set.png" id="24_dplq2"]
+[ext_resource type="PackedScene" uid="uid://cop5dm3wikblf" path="res://game/level/level_001/tile_map.tscn" id="25_hdv66"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hol4"]
+radius = 41.0
+height = 98.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2hxjc"]
+random_pitch = 1.1860515
+random_volume_offset_db = 1.54
+streams_count = 5
+stream_0/stream = ExtResource("10_e3375")
+stream_1/stream = ExtResource("11_15bh7")
+stream_2/stream = ExtResource("12_2tyfk")
+stream_3/stream = ExtResource("13_hwfyc")
+stream_4/stream = ExtResource("14_8e73s")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q6r6c"]
+radius = 10.542402
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bjha6"]
+random_pitch = 1.8672519
+random_volume_offset_db = 6.14
+streams_count = 5
+stream_0/stream = ExtResource("17_dheal")
+stream_1/stream = ExtResource("18_okjg5")
+stream_2/stream = ExtResource("19_pv70y")
+stream_3/stream = ExtResource("20_xpi3e")
+stream_4/stream = ExtResource("21_6mkw5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
+size = Vector2(69, 75)
+
+[node name="Level" type="Node" unique_id=1102028357]
+script = ExtResource("1_8d2ed")
+
+[node name="HUD" parent="." unique_id=43051289 instance=ExtResource("2_inren")]
+scale = Vector2(1, 1)
+transform = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="CheeseCollected" parent="HUD" index="1" unique_id=1338896567]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD" unique_id=2043662995]
+stream = ExtResource("5_co64l")
+volume_db = -33.373
+autoplay = true
+
+[node name="LevelTimer" parent="HUD" unique_id=1087443569 instance=ExtResource("6_5pg78")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
+
+[node name="Player" type="Node2D" parent="." unique_id=1170044883]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player" unique_id=79932143 groups=["player"]]
+z_index = 1
+script = ExtResource("7_v3img")
+
+[node name="Camera2D" type="Camera2D" parent="Player/CharacterBody2D" unique_id=1909600608]
+process_callback = 0
+script = ExtResource("8_hl6wr")
+board_path = NodePath("../../../Background")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/CharacterBody2D" unique_id=174627183]
+scale = Vector2(4, 4)
+texture = ExtResource("9_70rgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D" unique_id=183493482]
+shape = SubResource("CapsuleShape2D_0hol4")
+
+[node name="sfx_chomp1" type="AudioStreamPlayer" parent="Player/CharacterBody2D" unique_id=1483321469]
+stream = SubResource("AudioStreamRandomizer_2hxjc")
+
+[node name="Enemy" type="Node2D" parent="." unique_id=2080868617]
+position = Vector2(12, -7)
+
+[node name="Area2D" type="Area2D" parent="Enemy" unique_id=572688973]
+position = Vector2(-737, -476.99997)
+scale = Vector2(8.539062, 8.539062)
+script = ExtResource("15_01ymu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy/Area2D" unique_id=1968693309]
+texture = ExtResource("16_1wvoe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=258735405]
+position = Vector2(0.3513267, 2.4592867)
+shape = SubResource("CircleShape2D_q6r6c")
+
+[node name="sfx_angrymeow1" type="AudioStreamPlayer" parent="Enemy/Area2D" unique_id=195765332]
+stream = SubResource("AudioStreamRandomizer_bjha6")
+
+[node name="Token" type="Node2D" parent="." unique_id=159292683]
+
+[node name="Area2D" type="Area2D" parent="Token" unique_id=1267787408]
+script = ExtResource("22_y5wpv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Token/Area2D" unique_id=469109551]
+position = Vector2(312.5, -390.75)
+scale = Vector2(3.7812505, 3.3593757)
+texture = ExtResource("23_l7m0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Token/Area2D" unique_id=1938529689]
+position = Vector2(312.5, -394.5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_kdubu")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1621817563]
+visible = false
+z_index = -1
+position = Vector2(384.00003, 700.7088)
+scale = Vector2(9.5, 9.5)
+texture = ExtResource("24_dplq2")
+
+[node name="TileMap" parent="." unique_id=1328375107 instance=ExtResource("25_hdv66")]
+z_index = -1
+
+[editable path="HUD"]
