@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var sfx_angrymeow1 = $sfx_angrymeow1
 @export var rush_speed = 1500
 @export var retreat_speed := 350
 @export var min_delay := 1
@@ -69,3 +70,4 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		body.call("on_caught")
 		print("Caught!")
+		sfx_angrymeow1.play()

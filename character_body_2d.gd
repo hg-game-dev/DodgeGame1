@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var sfx_chomp1 = $sfx_chomp1
 @export var speed = 600
 
 var target = global_position
@@ -11,13 +12,11 @@ signal died
 @export var max_lives := 3
 var lives := 3
 
-signal tokens_changed(tokens)
+signal tokens_changed(tokens: int)
 signal won
 
 @export var slow_per_token := 10
 @export var min_speed := 250
-
-var wheels_awarded := 0
 
 func _ready():
 	lives = max_lives
@@ -36,15 +35,9 @@ func add_tokens(amount):
 	tokens += amount
 	tokens_changed.emit(tokens)
 	print("Tokens:", tokens)
+	sfx_chomp1.play()
 
-	speed = max(speed - slow_per_token * amount, min_speed)
-
-	var wheels_now := tokens / 6
-	if wheels_now > wheels_awarded:
-		var gained := wheels_now - wheels_awarded
-		lives += gained
-		wheels_awarded = wheels_now
-		lives_changed.emit(lives)
+	speed = max(speed - slow_per_token * amount, min_speed)	
 
 	if tokens >= 30:
 		won.emit()
@@ -57,7 +50,7 @@ func _input(event):
 		target = get_global_mouse_position()
 		target = clamp_to_board(target)
 	look_at(get_global_mouse_position())
-	
+
 @export var board_center := Vector2(384, 700.709)
 @export var board_size := Vector2(3040, 3040)
 
