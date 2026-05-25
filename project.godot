@@ -15,12 +15,16 @@ run/main_scene="uid://dbbahygaarj06"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalBus="*uid://852mopm13g58"
+
 [display]
 
-window/size/viewport_width=400
-window/size/viewport_height=400
-window/size/window_width_override=920
-window/size/window_height_override=920
+window/size/viewport_width=1440
+window/size/viewport_height=900
+window/size/window_width_override=1440
+window/size/window_height_override=900
 
 [dotnet]
 

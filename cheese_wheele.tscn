@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://78se0x7ymqj5"]
-
-[ext_resource type="Texture2D" uid="uid://l8x6nyaeq56c" path="res://sprite/Cheese_wheele.png" id="1_5j1uu"]
-
-[node name="CheeseWheele" type="Sprite2D" unique_id=1626461892]
-scale = Vector2(3, 3)
-texture = ExtResource("1_5j1uu")
-region_enabled = true
-region_rect = Rect2(192, 0, 32, 32)
